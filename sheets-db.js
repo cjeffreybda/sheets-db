@@ -155,11 +155,11 @@ export function numRecords(sheet) {
 }
 
 export function getCell(sheet, record, field, isFormattedString = false) {
-  if (_data[sheet][record].c[_sheets[sheet]._cols.indexOf(field)] != null) {
+  if (_data[sheet][record].c[_sheets[sheet].fields.indexOf(field)] != null) {
     if (isFormattedString == true) {
-      return _data[sheet][record].c[_sheets[sheet]._cols.indexOf(field)].f;
+      return _data[sheet][record].c[_sheets[sheet].fields.indexOf(field)].f;
     } else {
-      return _data[sheet][record].c[_sheets[sheet]._cols.indexOf(field)].v;
+      return _data[sheet][record].c[_sheets[sheet].fields.indexOf(field)].v;
     }
   }
   return null;

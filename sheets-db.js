@@ -186,7 +186,7 @@ export function anyCellFilled(sheet, record, fields) {
 // date utilities
 
 export function splitDate(date) {
-  return date.split("(")[1].split(")")[0].split(",");
+  return String(date).split("(")[1].split(")")[0].split(",");
 }
 
 export function dateToUTC(date, isSplit = false) {
@@ -227,7 +227,7 @@ export function dateToString(
     dateArr = splitDate(date);
   }
 
-  outDate = "";
+  let outDate = "";
   for (let i = 0; i < format.length; i++) {
     switch (format[i]) {
       case "d":
@@ -259,6 +259,8 @@ export function dateToString(
         break;
       case "yyyy":
         outDate += dateArr[0];
+        break;
+      default:
         break;
     }
     if (i < format.length - 1) {

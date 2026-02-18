@@ -58,8 +58,20 @@ export function driveUrlToThumb(url, width = 1080) {
   return `https://drive.google.com/thumbnail?id=${_driveUrlToId(url)}&sz=w${width}`;
 }
 
+export function driveUrlToVideo(url) {
+  return `https://drive.google.com/file/d/${_driveUrlToId(url)}/preview`;
+}
+
 export function driveUrlToDownload(url) {
   return `https://drive.google.com/uc?export=download&id=${_driveUrlToId(url)}`;
+}
+
+function _ytUrlToId(url) {
+  return url.substring(url.indexOf("?v=") + 3);
+}
+
+export function ytUrlToVideo(url) {
+  return `https://www.youtube.com/embed/${_ytUrlToId(url)}`;
 }
 
 // fetch utilties
